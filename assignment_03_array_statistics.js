@@ -40,7 +40,49 @@
 //   print an error message and stop.
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// 'use strict';
+
+// assignment_02_student_grade_system.js
+// Reads a student's score (0-100) and prints the corresponding letter grade.
+//
+// HOW TO RUN:
+// 1. npm install readline-sync
+// 2. node assignment_02_student_grade_system.js
+
+const readlineSync = require('readline-sync');
+
+function getGrade(score) {
+  // Validate range 0-100. Return null if out of range.
+  if (score < 0 || score > 100) return null;
+
+  // Determine grade using if / else if / else
+  if (score >= 80) {
+    return 'A';
+  } else if (score >= 70) {
+    return 'B';
+  } else if (score >= 60) {
+    return 'C';
+  } else if (score >= 50) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
+
+function main() {
+  const score = readlineSync.questionInt('Enter student score (0-100): ');
+  const grade = getGrade(score);
+
+  if (grade === null) {
+    console.log('Error: Score must be between 0 and 100.');
+  } else {
+    console.log(`Grade: ${grade}`);
+  }
+}
+
+if (require.main === module) {
+  main();
+}
 // =============================================================================
 
 
